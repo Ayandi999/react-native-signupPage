@@ -7,23 +7,23 @@ import {
   KeyboardAvoidingView, 
   Platform, 
   StyleSheet, 
-  SafeAreaView,
   ScrollView
 } from 'react-native';
 import { Image } from 'expo-image';
 
 const Signup = () => {
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <View style={styles.root}>
       <KeyboardAvoidingView 
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'} 
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined} 
         style={styles.container}
-        keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}
       >
         <ScrollView 
           contentContainerStyle={styles.scrollContent}
           showsVerticalScrollIndicator={false}
           keyboardShouldPersistTaps="handled"
+          bounces={false}
         >
           <View style={styles.headerContainer}>
             <Image 
@@ -100,12 +100,12 @@ const Signup = () => {
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  safeArea: {
+  root: {
     flex: 1,
     backgroundColor: '#fff',
   },
@@ -115,9 +115,11 @@ const styles = StyleSheet.create({
   scrollContent: {
     flexGrow: 1,
     paddingHorizontal: 24,
+    paddingTop: Platform.OS === 'ios' ? 40 : 20, // Manual safe area padding
+    paddingBottom: 40,
   },
   headerContainer: {
-    marginTop: 30,
+    marginTop: 40,
     alignItems: 'center',
     marginBottom: 35,
   },
@@ -220,8 +222,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     alignItems: 'center',
-    marginTop: 'auto',
-    marginBottom: 30,
+    marginTop: 40,
   },
   footerRow: {
     flexDirection: 'row',
