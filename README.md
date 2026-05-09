@@ -2,36 +2,44 @@
 
 A minimalist signup screen for React Native/Expo inspired by Dribbble design standards.
 
+## Requirements
+- Expo SDK 55 or above
+
 ## Project Structure
+- assets/ : Vector icons (SVG)
+- src/components/Signup.jsx : Core signup component
+- src/app/index.tsx : Main entry point
 
-- assets/ : Contains vector icons (SVG) used in the UI.
-- src/components/Signup.jsx : The core signup component with custom styling and keyboard handling.
-- src/app/index.tsx : Entry point rendering the Signup component.
+## Guide 1: Forking the Entire Project
+If you wish to use this repository as a boilerplate:
 
-## Usage Guide
+1. Clone the repository
+2. Install dependencies:
+   npm install
+3. Start the development server:
+   npx expo start
 
-To use the Signup component in your own project:
+## Guide 2: Using the Component Individually
+If you want to integrate only the Signup component into an existing project:
 
-1. Dependencies
-Ensure you have the following installed:
-- react-native-svg
-- expo-image
+1. Install Dependencies
+   npx expo install react-native-svg expo-image
 
-2. Asset Configuration
-Copy the svg files from the /assets folder into your project's asset directory.
+2. Copy Assets
+   Copy all SVG files from the /assets directory to your project's assets folder.
 
-3. Import and Implementation
-Import the component into your main application file:
+3. Import Component
+   Copy src/components/Signup.jsx to your project and update the asset import paths if necessary.
 
-import Signup from './src/components/Signup';
+4. Implementation
+   import Signup from './components/Signup';
 
-export default function App() {
-  return <Signup />;
-}
+   export default function App() {
+     return <Signup />;
+   }
 
 ## Technical Implementation
-
-- Uses KeyboardAvoidingView with platform-specific behavior for stable layout.
-- Implements ScrollView with keyboardShouldPersistTaps to ensure stable input focus.
-- Native styling using StyleSheet for performance.
-- Vector asset rendering via expo-image.
+- KeyboardAvoidingView with platform-specific behavior
+- ScrollView with keyboardShouldPersistTaps
+- Native StyleSheet for performance
+- expo-image for vector asset rendering
