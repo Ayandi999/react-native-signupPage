@@ -1,5 +1,5 @@
 import React from 'react'
-import { View,Text,TextInput,KeyboardAvoidingView, Platform } from 'react-native'
+import { Pressable,View,Text,TextInput,KeyboardAvoidingView, Platform } from 'react-native'
 import { Image } from 'expo-image'
 
 const Signup = () => {
@@ -15,7 +15,33 @@ const Signup = () => {
        placeholder='elimentary221b@gmail.com' 
        style={{ flex: 1, }} 
      />
-</View>
+     </View>
+     <Text>Password</Text>
+     <View style={{ flexDirection: 'row', alignItems: 'center',borderWidth: 1, borderColor: '#5fdb00ff', borderRadius: 13, margin:20 }}>
+     <Image source={require('@/assets/lock.svg')} style={{ height: 30, width: 30 }} />
+     <TextInput 
+       placeholder='Enter your password...' 
+       style={{ flex: 1, }} 
+     />
+     </View>
+     <Pressable
+          style={{
+               flexDirection: 'row', 
+               alignItems: 'center',
+               height:40,
+               borderRadius:13,
+               margin:20,
+               paddingLeft:110,
+               backgroundColor:'#5fdb00ff'
+          }}
+     ><Text style={{
+          color:"#ffff",
+          alignSelf:'center',
+          padding:5,
+          fontSize:20
+     }}>Sign In</Text>
+     <Image source={require('@/assets/arrow.svg')} style={{height: 30, width: 30,color:'#ffff'}}/>
+     </Pressable>
     </KeyboardAvoidingView>
   )
 }
